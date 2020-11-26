@@ -1,0 +1,7 @@
+{
+  "name": "briefing-prototype",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
