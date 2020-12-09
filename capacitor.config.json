@@ -3,7 +3,7 @@
   "appName": "briefing-prototype",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "dist",
+  "webDir": "build",
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
