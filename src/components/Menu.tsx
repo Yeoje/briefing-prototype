@@ -12,7 +12,7 @@ import {
   
   import React from 'react';
   import { useLocation } from 'react-router-dom';
-  import { chatbubblesOutline, chatbubblesSharp, heartOutline, heartSharp, homeOutline, homeSharp} from 'ionicons/icons';
+  import { chatbubblesOutline, chatbubblesSharp, heartOutline, heartSharp, homeOutline, homeSharp, medicalOutline, medicalSharp, medkitOutline, medkitSharp, peopleOutline, peopleSharp, settingsOutline, settingsSharp, waterOutline, waterSharp} from 'ionicons/icons';
   import './Menu.css';
 
   
@@ -37,18 +37,35 @@ import {
       mdIcon: chatbubblesSharp
     },
     {
-      title: 'Favorites',
-      url: '/Favorites',
-      iosIcon: heartOutline,
-      mdIcon: heartSharp
+      title: 'Consultaanvraag',
+      url: '/consult',
+      iosIcon: peopleOutline,
+      mdIcon: peopleSharp
     },
     {
-      title: 'TABS',
-      url: '/tabs',
-      iosIcon: heartOutline,
-      mdIcon: heartSharp
+      title: 'Doorverwijzing',
+      url: '/doorverwijzing',
+      iosIcon: medicalOutline,
+      mdIcon: medicalSharp
     },
-    
+    {
+        title: 'Bloedonderzoek',
+        url: '/bloedonderzoek',
+        iosIcon: waterOutline,
+        mdIcon: waterSharp
+    },
+    {
+        title: 'Mijn Medicijnen',
+        url: '/mijnmedicijnen',
+        iosIcon: medkitOutline,
+        mdIcon: medkitSharp
+    },
+    {
+        title: 'Instellingen',
+        url: '/instellingen',
+        iosIcon: settingsOutline,
+        mdIcon: settingsSharp
+    }
   ];
   
   const Menu: React.FC = () => {
