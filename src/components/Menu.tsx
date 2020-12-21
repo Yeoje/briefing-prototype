@@ -12,7 +12,7 @@ import {
   
   import React from 'react';
   import { useLocation } from 'react-router-dom';
-  import { chatbubblesOutline, chatbubblesSharp, heartOutline, heartSharp, homeOutline, homeSharp, medicalOutline, medicalSharp, medkitOutline, medkitSharp, peopleOutline, peopleSharp, settingsOutline, settingsSharp, waterOutline, waterSharp} from 'ionicons/icons';
+  import { chatbubblesOutline, chatbubblesSharp, homeOutline, homeSharp, medicalOutline, medicalSharp, medkitOutline, medkitSharp, peopleOutline, peopleSharp, settingsOutline, settingsSharp, waterOutline, waterSharp} from 'ionicons/icons';
   import './Menu.css';
 
   

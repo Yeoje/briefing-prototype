@@ -6,10 +6,8 @@ import {
   IonSplitPane,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
-import Tab2 from './pages/Spoed';
-import Tab3 from './pages/Instellingen';
 import MainTabs from '../src/components/MainTabs'
+import { AuthContext } from '../src/pages/auth/authContext'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -30,18 +28,30 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import Menu from './components/Menu';
+import Login from './pages/auth/Login';
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonSplitPane contentId="main">
-      <Menu />
-      <IonRouterOutlet id="main">
-        <Route path="/" component={MainTabs} />
-      </IonRouterOutlet>
-    </IonSplitPane>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  return (
+    <IonApp>
+      <AuthContext.Consumer>
+      {(authState) => !authState.authValues.authenticated ? (
+        <IonReactRouter>
+          <Route path="/login" component={Login} />
+          <Route path="/" render={() => <Redirect to="/login" />} exact={true} />
+        </IonReactRouter>
+      ) : (
+          <IonReactRouter>
+            <IonSplitPane contentId="main">
+              <Menu />
+              <IonRouterOutlet id="main">
+                <Route path="/" component={MainTabs} />
+              </IonRouterOutlet>
+            </IonSplitPane>
+          </IonReactRouter>
+        )}
+      </AuthContext.Consumer>
+      
+    </IonApp>
+    )};
 
-export default App;
+  export default App;
