@@ -30,6 +30,7 @@ import './theme/variables.css';
 import Menu from './components/Menu';
 import Login from './pages/auth/Login';
 import Registratie from './pages/auth/Registratie';
+import SpoedX from './pages/auth/SpoedX';
 
 const App: React.FC = () => {
   return (
@@ -40,6 +41,7 @@ const App: React.FC = () => {
           <Route path="/login" component={Login} />
           <Route path="/" render={() => <Redirect to="/login" />} exact={true} />
           <Route path="/registratie" component={Registratie} />
+          <Route path="/spoedx" component={SpoedX} />
         </IonReactRouter>
       ) : (
           <IonReactRouter>

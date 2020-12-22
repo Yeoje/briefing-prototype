@@ -32,12 +32,14 @@ export const AuthProvider: React.FC = ({ children }) => {
         user: null,
     });
 
-    const login = ({ username: user, password }: User): Promise<boolean> => {
+    const login = ({ username, password }: User): Promise<boolean> => {
         return new Promise((resolve) => {
-            if (user === window.localStorage.getItem("username") && password === window.localStorage.getItem("password")) {
+            const users:User[] = JSON.parse(window.localStorage.getItem('users') ?? '[]')
+            const user = users.find((obj) => username === obj.username && password === obj.password)
+            if (user) {
                 setAuthValues({
                     authenticated: true,
-                    user: {username: user, password}
+                    user
                 });
                 resolve(true);
             } else {

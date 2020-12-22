@@ -9,6 +9,8 @@ import {
     IonLabel,
     IonInput,
     IonCheckbox,
+    IonText,
+    IonFooter,
 } from "@ionic/react";
 import React from "react";
 // Auth
@@ -29,9 +31,15 @@ const Login: React.FC<RouteComponentProps> = () => {
             });
             if (result) {
                 history.replace("/home")
+            } else {
+                setLoginError(true);
             }
-        }
+        } 
     }
+
+    const [loginError, setLoginError] = React.useState<boolean>(false);
+
+
 
     return (
         <IonPage>
@@ -42,26 +50,31 @@ const Login: React.FC<RouteComponentProps> = () => {
             </IonHeader>
 
             <IonContent>
-                <form className="ion-padding" onSubmit={() => doLogin()}>
+                <form className="ion-padding">
                     <IonItem>
                         <IonLabel position="floating">Username</IonLabel>
-                        <IonInput value={user?.username} onIonChange={(e) => setUser({ ...user, username: e.detail.value! })} />
+                        <IonInput required value={user?.username} onIonChange={(e) => setUser({ ...user, username: e.detail.value! })} />
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating">Password</IonLabel>
-                        <IonInput type="password" value={user?.password} onIonChange={(e) => setUser({ ...user, password: (e.detail.value!) })} />
+                        <IonInput required type="password" value={user?.password} onIonChange={(e) => setUser({ ...user, password: (e.detail.value!) })} />
                     </IonItem>
                     <IonItem lines="none">
-                        <IonLabel>Remember me</IonLabel>
-                        <IonCheckbox defaultChecked={true} slot="start" />
+                    {loginError && (
+                        <IonText color="danger">
+                            <p>Gebruikersnaam en/of wachtwoord is verkeerd</p>
+                        </IonText>
+                    )}
                     </IonItem>
-                    <IonButton className="ion-margin-top" color="primary" type="submit" expand="block" disabled={!user?.username || !user?.password}>
+                    <IonButton className="ion-margin-top" color="primary" expand="block" disabled={!user?.username || !user?.password} onClick={() => doLogin()}>
                         Login
                     </IonButton>
                     <IonButton className="ion-margin-top" color="secondary" expand="block" href="/registratie">Registreer</IonButton>
-                </form>
-                
+                </form>        
             </IonContent>
+            <IonFooter>
+            <IonButton className="ion-margin-top" style={{padding: '5px'}} color="danger" expand="block" href="/spoedx">SPOED</IonButton>
+            </IonFooter>
         </IonPage>
     );
 };
