@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Chat.css';
 
 const Chat: React.FC = () => {
@@ -7,9 +7,12 @@ const Chat: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start">
-          <IonMenuButton />
-        </IonButtons>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonButtons slot="end">
+            <IonBackButton defaultHref="home" />
+          </IonButtons>
           <IonTitle>Chat</IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -19,9 +22,9 @@ const Chat: React.FC = () => {
             <IonTitle size="large">Chat</IonTitle>
           </IonToolbar>
         </IonHeader>
-          <p>Chat met uw arts</p>
+        <p>Chat met uw arts</p>
       </IonContent>
-      
+
     </IonPage>
   );
 };

@@ -29,6 +29,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Menu from './components/Menu';
 import Login from './pages/auth/Login';
+import Registratie from './pages/auth/Registratie';
 
 const App: React.FC = () => {
   return (
@@ -38,6 +39,7 @@ const App: React.FC = () => {
         <IonReactRouter>
           <Route path="/login" component={Login} />
           <Route path="/" render={() => <Redirect to="/login" />} exact={true} />
+          <Route path="/registratie" component={Registratie} />
         </IonReactRouter>
       ) : (
           <IonReactRouter>

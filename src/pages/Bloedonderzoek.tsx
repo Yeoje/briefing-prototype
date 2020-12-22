@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Bloedonderzoek.css';
 
 const Bloedonderzoek: React.FC = () => {
@@ -7,9 +7,12 @@ const Bloedonderzoek: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start">
-          <IonMenuButton />
-        </IonButtons>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonButtons slot="end">
+            <IonBackButton defaultHref="home" />
+          </IonButtons>
           <IonTitle>Vraag bloedonderzoek aan</IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -19,9 +22,9 @@ const Bloedonderzoek: React.FC = () => {
             <IonTitle size="large">Bloedonderzoek</IonTitle>
           </IonToolbar>
         </IonHeader>
-          <p>Vraag een bloed onderzoek aan</p>
+        <p>Vraag een bloed onderzoek aan</p>
       </IonContent>
-      
+
     </IonPage>
   );
 };

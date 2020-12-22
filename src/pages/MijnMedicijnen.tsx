@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './MijnMedicijnen.css';
 
 const MijnMedicijnen: React.FC = () => {
@@ -7,9 +7,12 @@ const MijnMedicijnen: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start">
-          <IonMenuButton />
-        </IonButtons>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonButtons slot="end">
+            <IonBackButton defaultHref="home" />
+          </IonButtons>
           <IonTitle>Mijn Medicijnen</IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -19,9 +22,9 @@ const MijnMedicijnen: React.FC = () => {
             <IonTitle size="large">Mijn medicijnen</IonTitle>
           </IonToolbar>
         </IonHeader>
-          <p>Een overzicht van uw medicijnen</p>
+        <p>Een overzicht van uw medicijnen</p>
       </IonContent>
-      
+
     </IonPage>
   );
 };

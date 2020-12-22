@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Consult.css';
 
 const Consult: React.FC = () => {
@@ -7,9 +7,12 @@ const Consult: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start">
-          <IonMenuButton />
-        </IonButtons>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonButtons slot="end">
+            <IonBackButton defaultHref="home" />
+          </IonButtons>
           <IonTitle>Vraag consult aan</IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -19,9 +22,9 @@ const Consult: React.FC = () => {
             <IonTitle size="large">Vraag consult aan</IonTitle>
           </IonToolbar>
         </IonHeader>
-          <p>Vraag een consult aan met uw arts</p>
+        <p>Vraag een consult aan met uw arts</p>
       </IonContent>
-      
+
     </IonPage>
   );
 };

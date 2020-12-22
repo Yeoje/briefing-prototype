@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Doorverwijzing.css';
 
 const Doorverwijzing: React.FC = () => {
@@ -7,9 +7,12 @@ const Doorverwijzing: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start">
-          <IonMenuButton />
-        </IonButtons>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonButtons slot="end">
+            <IonBackButton defaultHref="home" />
+          </IonButtons>
           <IonTitle>Vraag een doorverwijzing aan</IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -19,9 +22,9 @@ const Doorverwijzing: React.FC = () => {
             <IonTitle size="large">Doorverwijzing</IonTitle>
           </IonToolbar>
         </IonHeader>
-          <p>Vraag een doorverwijzing aan</p>
+        <p>Vraag een doorverwijzing aan</p>
       </IonContent>
-      
+
     </IonPage>
   );
 };

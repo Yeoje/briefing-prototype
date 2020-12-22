@@ -1,8 +1,6 @@
 import {
-    IonButtons,
     IonContent,
     IonHeader,
-    IonMenuButton,
     IonPage,
     IonTitle,
     IonToolbar,
@@ -39,10 +37,7 @@ const Login: React.FC<RouteComponentProps> = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonButtons slot="start">
-                        <IonMenuButton />
-                    </IonButtons>
-                    <IonTitle>Login Page</IonTitle>
+                    <IonTitle>Login</IonTitle>
                 </IonToolbar>
             </IonHeader>
 
@@ -60,10 +55,12 @@ const Login: React.FC<RouteComponentProps> = () => {
                         <IonLabel>Remember me</IonLabel>
                         <IonCheckbox defaultChecked={true} slot="start" />
                     </IonItem>
-                    <IonButton className="ion-margin-top" type="submit" expand="block" disabled={!user?.username || !user?.password}>
+                    <IonButton className="ion-margin-top" color="primary" type="submit" expand="block" disabled={!user?.username || !user?.password}>
                         Login
                     </IonButton>
+                    <IonButton className="ion-margin-top" color="secondary" expand="block" href="/registratie">Registreer</IonButton>
                 </form>
+                
             </IonContent>
         </IonPage>
     );

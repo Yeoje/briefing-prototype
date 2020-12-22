@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 
 export const AuthContext = React.createContext<AuthState>({
     authValues: {
@@ -25,6 +26,7 @@ interface AuthState {
     logout: () => Promise<boolean>
 }
 export const AuthProvider: React.FC = ({ children }) => {
+    const history = useHistory();
     const [authValues, setAuthValues] = React.useState<AuthContextProps>({
         authenticated: false,
         user: null,
@@ -32,7 +34,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     const login = ({ username: user, password }: User): Promise<boolean> => {
         return new Promise((resolve) => {
-            if (user === "poes" && password === "poes") {
+            if (user === window.localStorage.getItem("username") && password === window.localStorage.getItem("password")) {
                 setAuthValues({
                     authenticated: true,
                     user: {username: user, password}
@@ -49,6 +51,7 @@ export const AuthProvider: React.FC = ({ children }) => {
             authenticated: false,
             user: null
         })
+        history.replace("/login");
         return Promise.resolve(true);
     };
 
