@@ -8,7 +8,6 @@ import {
     IonItem,
     IonLabel,
     IonInput,
-    IonCheckbox,
     IonText,
     IonFooter,
 } from "@ionic/react";
@@ -38,9 +37,6 @@ const Login: React.FC<RouteComponentProps> = () => {
     }
 
     const [loginError, setLoginError] = React.useState<boolean>(false);
-
-
-
     return (
         <IonPage>
             <IonHeader>
@@ -63,7 +59,9 @@ const Login: React.FC<RouteComponentProps> = () => {
                     {loginError && (
                         <IonText color="danger">
                             <p>Gebruikersnaam en/of wachtwoord is verkeerd</p>
+                            <IonButton className="ion-margin-top" color="secondary" expand="block" href="/vergeten">wachtwoord vergeten?</IonButton>
                         </IonText>
+                        
                     )}
                     </IonItem>
                     <IonButton className="ion-margin-top" color="primary" expand="block" disabled={!user?.username || !user?.password} onClick={() => doLogin()}>

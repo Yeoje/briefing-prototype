@@ -17,6 +17,7 @@ import Consult from '../pages/Consult';
 import Doorverwijzing from '../pages/Doorverwijzing';
 import Bloedonderzoek from '../pages/Bloedonderzoek';
 import MijnMedicijnen from '../pages/MijnMedicijnen';
+import logout from '../pages/auth/authContext'
 
 const MainTabs: React.FC = () => {
     return(
@@ -44,6 +45,10 @@ const MainTabs: React.FC = () => {
           <IonTabButton tab="instellingen" href="/instellingen">
             <IonIcon icon={settings} />
             <IonLabel>Instelligen</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="login"  onClick={logout}>
+            <IonIcon icon={settings} />
+            <IonLabel>Logout</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

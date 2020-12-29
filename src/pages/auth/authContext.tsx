@@ -20,10 +20,15 @@ export interface User {
     password: string
 }
 
+export interface Userextra extends User{
+    email: string
+    naam: string
+}
+
 interface AuthState {
     authValues: AuthContextProps
     login: (user: User) => Promise<boolean>
-    logout: () => Promise<boolean>
+    logout: (user: User) => Promise<boolean>
 }
 export const AuthProvider: React.FC = ({ children }) => {
     const history = useHistory();
@@ -34,16 +39,22 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     const login = ({ username, password }: User): Promise<boolean> => {
         return new Promise((resolve) => {
-            const users:User[] = JSON.parse(window.localStorage.getItem('users') ?? '[]')
-            const user = users.find((obj) => username === obj.username && password === obj.password)
-            if (user) {
-                setAuthValues({
-                    authenticated: true,
-                    user
-                });
-                resolve(true);
-            } else {
-                resolve(false);
+            if(Response){
+                try {
+                    const users:User[] = JSON.parse(window.localStorage.getItem('users') ?? '[]')
+                    const user = users.find((obj) => username === obj.username && password === obj.password)
+                    if (user) {
+                        setAuthValues({
+                            authenticated: true,
+                            user
+                        });
+                        resolve(true);
+                    } else {
+                        resolve(false);
+                    }
+                } catch(e) {
+                    resolve(false);
+                }
             }
         });
     };
