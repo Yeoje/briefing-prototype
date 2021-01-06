@@ -37,27 +37,28 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <AuthContext.Consumer>
-      {(authState) => !authState.authValues.authenticated ? (
-        <IonReactRouter>
-          <Route path="/login" component={Login} />
-          <Route path="/" render={() => <Redirect to="/login" />} exact={true} />
-          <Route path="/registratie" component={Registratie} />
-          <Route path="/vergeten" component={Vergeten} />
-          <Route path="/spoedx" component={SpoedX} />
-        </IonReactRouter>
-      ) : (
+        {(authState) => !authState.authValues.authenticated ? (
           <IonReactRouter>
-            <IonSplitPane contentId="main">
-              <Menu />
-              <IonRouterOutlet id="main">
-                <Route path="/" component={MainTabs} />
-              </IonRouterOutlet>
-            </IonSplitPane>
+            <Route path="/login" component={Login} />
+            <Route path="/registratie" component={Registratie} />
+            <Route path="/vergeten" component={Vergeten} />
+            <Route path="/spoedx" component={SpoedX} />
+            <Route path="/" render={() => <Redirect to="/login" />} exact={true} />
           </IonReactRouter>
-        )}
+        ) : (
+            <IonReactRouter>
+              <IonSplitPane contentId="main">
+                <Menu />
+                <IonRouterOutlet id="main">
+                  <Route path="/" component={MainTabs} />
+                </IonRouterOutlet>
+              </IonSplitPane>
+            </IonReactRouter>
+          )}
       </AuthContext.Consumer>
-      
-    </IonApp>
-    )};
 
-  export default App;
+    </IonApp>
+  )
+};
+
+export default App;

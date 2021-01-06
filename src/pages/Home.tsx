@@ -19,7 +19,7 @@ const Home: React.FC = () => {
             <IonTitle size="large"><IonText color="primary"><h1>Nieuws van uw Huisarts</h1></IonText></IonTitle>
           </IonToolbar>
         </IonHeader>
-        <div style={{padding: '5px'}}>
+        <div style={{padding: '15px'}}>
           
           <IonText color="tertiary"><h2>Vervangers</h2></IonText>
             <h5>De volgende artsen worden tijdelijk vervangen:</h5>

@@ -7,7 +7,7 @@ import {
     IonTabButton,
     IonTabs
   } from '@ionic/react';
-import { call, home, settings } from 'ionicons/icons';
+import { call, home, logOutOutline, settings } from 'ionicons/icons';
 import Home from '../pages/Home';
 import Spoed from '../pages/Spoed';
 import Instellingen from '../pages/Instellingen';
@@ -17,9 +17,10 @@ import Consult from '../pages/Consult';
 import Doorverwijzing from '../pages/Doorverwijzing';
 import Bloedonderzoek from '../pages/Bloedonderzoek';
 import MijnMedicijnen from '../pages/MijnMedicijnen';
-import logout from '../pages/auth/authContext'
+import {AuthContext} from '../pages/auth/authContext'
 
 const MainTabs: React.FC = () => {
+  const { logout } = React.useContext(AuthContext);
     return(
     <IonTabs>
         <IonRouterOutlet>
@@ -46,9 +47,11 @@ const MainTabs: React.FC = () => {
             <IonIcon icon={settings} />
             <IonLabel>Instelligen</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="login"  onClick={logout}>
-            <IonIcon icon={settings} />
-            <IonLabel>Logout</IonLabel>
+          <IonTabButton tab="login" href="/login">
+          <IonIcon onClick={logout} icon={logOutOutline} />
+              <span onClick={logout}>
+                <IonLabel>Logout</IonLabel>
+              </span>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

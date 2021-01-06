@@ -1,5 +1,4 @@
-import React from "react";
-import { useHistory } from "react-router";
+import React from "react";  
 
 export const AuthContext = React.createContext<AuthState>({
     authValues: {
@@ -28,10 +27,9 @@ export interface Userextra extends User{
 interface AuthState {
     authValues: AuthContextProps
     login: (user: User) => Promise<boolean>
-    logout: (user: User) => Promise<boolean>
+    logout: () => Promise<boolean>
 }
 export const AuthProvider: React.FC = ({ children }) => {
-    const history = useHistory();
     const [authValues, setAuthValues] = React.useState<AuthContextProps>({
         authenticated: false,
         user: null,
@@ -64,7 +62,6 @@ export const AuthProvider: React.FC = ({ children }) => {
             authenticated: false,
             user: null
         })
-        history.replace("/login");
         return Promise.resolve(true);
     };
 
@@ -78,5 +75,3 @@ export const AuthProvider: React.FC = ({ children }) => {
             {children}
         </AuthContext.Provider>
 };
-
-export default AuthProvider;
