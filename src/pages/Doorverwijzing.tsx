@@ -22,7 +22,6 @@ const Doorverwijzing: React.FC = () => {
             <IonTitle size="large">Doorverwijzing</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <p>Vraag een doorverwijzing aan</p>
       </IonContent>
 
     </IonPage>

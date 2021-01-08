@@ -1,0 +1,19 @@
+.tables {
+    width: 100%;
+    padding: 5px;  
+}
+.react-calendar {
+    width: 100%;
+}
+.tables table{
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 3px;
+}
+h3 {
+    text-align: center;
+}
+.tabelafspraak td, .tabelafspraak th {
+    padding: 3px;
+}
