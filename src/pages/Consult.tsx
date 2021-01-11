@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonItem, IonLabel, IonMenuButton, IonPage, IonRadio, IonRadioGroup, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import { IonAlert, IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonMenuButton, IonPage, IonRadio, IonRadioGroup, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import 'react-calendar/dist/Calendar.css';
 import './Consult.css';
 import Calendar from 'react-calendar';
@@ -9,6 +9,9 @@ import { tijdenlang } from '../mock/tabeltijdenlang';
 const Consult: React.FC = () => {
   const [value, setValue] = useState<Date | Date[]>(new Date());
   const [selected, setSelected] = useState<string>('biff');
+  const [klacht, setKlacht] = useState<boolean>(false);
+  const [showAlert1, setShowAlert1] = useState(false);
+  const [tijd, setTijd] = useState<string | undefined>();
 
   return (
     <IonPage>
@@ -64,10 +67,10 @@ const Consult: React.FC = () => {
                   {tijdenkort.map(obj => {
                     return (
                       <tr>
-                        <td>{obj.tijdkort1}</td>
-                        <td>{obj.tijdkort2}</td>
-                        <td>{obj.tijdkort3}</td>
-                        <td>{obj.tijdkort4}</td>
+                        <td className="tijdvol">{obj.tijdkort1}</td>
+                        <td onClick={(e) => setTijd(obj.tijdkort2)}>{obj.tijdkort2}</td>
+                        <td onClick={(e) => setTijd(obj.tijdkort3)}>{obj.tijdkort3}</td>
+                        <td onClick={(e) => setTijd(obj.tijdkort4)}>{obj.tijdkort4}</td>
                       </tr>
                     )
                   })}
@@ -87,17 +90,36 @@ const Consult: React.FC = () => {
                 {tijdenlang.map(obj2 => {
                   return (
                     <tr>
-                      <td colSpan={2}>{obj2.tijdlang1}</td>
-                      <td colSpan={2}>{obj2.tijdlang2}</td>
+                      <td colSpan={2} className="tijdvol">{obj2.tijdlang1}</td>
+                      <td colSpan={2} onClick={(e) => setTijd(obj2.tijdlang2)}>{obj2.tijdlang2}</td>
                     </tr>
                   )
                 })}
               </tbody>
             </table>
           </div>
-        )}
-      </IonContent>
 
+        )}
+        <IonText hidden={!tijd} color="dark"><p>U heeft geselecteerd als tijd: {tijd}</p></IonText>
+
+        <IonText color="tertiary"><h3>Voer uw klachten in:</h3></IonText>
+        <IonItem disabled={!tijd} style={{padding: 5}}>
+          <IonInput required onIonChange={(e) => setKlacht(true)} />
+        </IonItem>
+
+        <IonButton className="ion-margin-top" color="primary" expand="block" disabled={!klacht} onClick={() => setShowAlert1(true)} style={{padding: 5}}>
+          Maak afspraak
+      </IonButton>
+        <IonAlert
+          isOpen={showAlert1}
+          onDidDismiss={() => setShowAlert1(false)}
+          cssClass='my-custom-class'
+          header={'Verstuurd'}
+          subHeader={''}
+          message={`Uw afspraak voor ${tijd} is gemaakt`}
+          buttons={['OK']}
+        />
+      </IonContent>
     </IonPage>
   );
 };
