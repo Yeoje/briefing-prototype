@@ -15,6 +15,7 @@ import {
   import { chatbubblesOutline, chatbubblesSharp, homeOutline, homeSharp, medicalOutline, medicalSharp, medkitOutline, medkitSharp, peopleOutline, peopleSharp, settingsOutline, settingsSharp, waterOutline, waterSharp} from 'ionicons/icons';
   import './Menu.css';
 
+
   
   interface AppPage {
     url: string;
@@ -76,7 +77,7 @@ import {
         <IonContent>
           <IonList id="inbox-list">
             <IonListHeader>Briefing Prototype</IonListHeader>
-            <IonNote>Naam van patient</IonNote>
+            <IonNote>TODO:Voeg naam value toe</IonNote>
             {appPages.map((appPage, index) => {
               return (
                 <IonMenuToggle key={index} autoHide={false}>

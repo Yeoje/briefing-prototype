@@ -5,6 +5,7 @@ import './Consult.css';
 import Calendar from 'react-calendar';
 import { tijdenkort } from '../mock/tabeltijdenkort';
 import { tijdenlang } from '../mock/tabeltijdenlang';
+import { useHistory } from 'react-router';
 
 const Consult: React.FC = () => {
   const [value, setValue] = useState<Date | Date[]>(new Date());
@@ -12,6 +13,7 @@ const Consult: React.FC = () => {
   const [klacht, setKlacht] = useState<boolean>(false);
   const [showAlert1, setShowAlert1] = useState(false);
   const [tijd, setTijd] = useState<string | undefined>();
+  const history = useHistory();
 
   return (
     <IonPage>
@@ -112,7 +114,11 @@ const Consult: React.FC = () => {
       </IonButton>
         <IonAlert
           isOpen={showAlert1}
-          onDidDismiss={() => setShowAlert1(false)}
+          onDidDismiss={() => {
+            setShowAlert1(false)
+            history.replace("/home")
+          }
+        }
           cssClass='my-custom-class'
           header={'Verstuurd'}
           subHeader={''}
