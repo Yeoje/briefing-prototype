@@ -1,6 +1,7 @@
 import React from 'react';
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton,  IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import './MijnMedicijnen.css';
+import { Medicijn } from '../components/Medicijn';
 
 const MijnMedicijnen: React.FC = () => {
   return (
@@ -19,12 +20,12 @@ const MijnMedicijnen: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Mijn medicijnen</IonTitle>
+            <IonTitle size="large"><IonText color="primary">Mijn medicijnen</IonText></IonTitle>
           </IonToolbar>
         </IonHeader>
-        <p>Een overzicht van uw medicijnen</p>
+        <Medicijn naam="Diazepam - 5mg" />
+        <Medicijn naam="Omeprazol - 10mg" />
       </IonContent>
-
     </IonPage>
   );
 };
