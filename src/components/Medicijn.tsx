@@ -1,5 +1,5 @@
 import { IonAlert, IonButton, IonIcon, IonItem, IonText } from "@ionic/react"
-import { documentTextOutline, refreshCircleOutline, helpCircleOutline, help, informationCircleOutline } from "ionicons/icons"
+import { documentTextOutline, refreshCircleOutline, helpCircleOutline, informationCircleOutline } from "ionicons/icons"
 import React, { useState } from "react"
 
 export const Medicijn: React.FC<{naam: string}> = ({naam}) => {
