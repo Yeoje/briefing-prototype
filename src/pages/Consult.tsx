@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { IonAlert, IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonMenuButton, IonPage, IonRadio, IonRadioGroup, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import 'react-calendar/dist/Calendar.css';
 import './Consult.css';
-import Calendar from 'react-calendar';
+import Calendar, { CalendarTileProperties } from 'react-calendar';
 import { tijdenkort } from '../mock/tabeltijdenkort';
 import { tijdenlang } from '../mock/tabeltijdenlang';
 import { useHistory } from 'react-router';
@@ -14,6 +14,15 @@ const Consult: React.FC = () => {
   const [showAlert1, setShowAlert1] = useState(false);
   const [tijd, setTijd] = useState<string | undefined>();
   const history = useHistory();
+
+  const tileDisabled = ({ date }: CalendarTileProperties & { activeStartDate: Date }) => {
+    if (date.getDay() !== 0 && date.getDay() !== 6) {
+      return false;
+    }
+
+    return true;
+  }
+
 
   return (
     <IonPage>
@@ -38,6 +47,8 @@ const Consult: React.FC = () => {
           <Calendar
             value={value}
             onChange={setValue}
+            tileDisabled={tileDisabled}
+            minDate={new Date()}
           />
         </div>
 
@@ -105,20 +116,20 @@ const Consult: React.FC = () => {
         <IonText hidden={!tijd} color="dark"><p>U heeft geselecteerd als tijd: {tijd}</p></IonText>
 
         <IonText color="tertiary"><h3>Voer uw klachten in:</h3></IonText>
-        <IonItem disabled={!tijd} style={{padding: 5}}>
-          <IonInput required onIonChange={(e) => setKlacht(true)} />
+        <IonItem disabled={!tijd} style={{ padding: 5 }}>
+          <IonInput required onIonChange={() => setKlacht(true)} />
         </IonItem>
 
-        <IonButton className="ion-margin-top" color="primary" expand="block" disabled={!klacht} onClick={() => setShowAlert1(true)} style={{padding: 5}}>
+        <IonButton className="ion-margin-top" color="primary" expand="block" disabled={!klacht} onClick={() => setShowAlert1(true)} style={{ padding: 5 }}>
           Maak afspraak
-      </IonButton>
+        </IonButton>
         <IonAlert
           isOpen={showAlert1}
           onDidDismiss={() => {
             setShowAlert1(false)
             history.replace("/home")
           }
-        }
+          }
           cssClass='my-custom-class'
           header={'Verstuurd'}
           subHeader={''}
