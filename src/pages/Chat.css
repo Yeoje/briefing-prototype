@@ -1,0 +1,32 @@
+.chat ul {
+    padding: 4px;
+    background-color: wheat;
+    list-style-type: none;
+}
+
+.chat li {
+    margin: 4px 0;
+    padding: 4px;
+    width: 100%;
+    display: inline-block;
+}
+
+.chat p {
+    padding: 4px 8px;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.dokter {
+    text-align: left;
+}
+.patient {
+    text-align:right;
+}
+.dokter > p {
+    background-color: white;
+}
+.patient > p {
+    background-color: green;
+}
