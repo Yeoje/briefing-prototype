@@ -1,8 +1,8 @@
 import React from 'react';
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './Instellingen.css';
+import './Profiel.css';
 
-const Instellingen: React.FC = () => {
+const Profiel: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -13,19 +13,19 @@ const Instellingen: React.FC = () => {
           <IonButtons slot="end">
             <IonBackButton defaultHref="home" />
           </IonButtons>
-          <IonTitle>Instellingen</IonTitle>
+          <IonTitle>Profiel</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Instellingen</IonTitle>
+            <IonTitle size="large">Profiel</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <p>Instellingen</p>
+        <p>Profiel</p>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Instellingen;
+export default Profiel;

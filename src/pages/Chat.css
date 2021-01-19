@@ -1,7 +1,15 @@
+.chat {
+    height: 80vh;
+}
 .chat ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
     padding: 4px;
-    background-color: wheat;
+    background: #eee;
     list-style-type: none;
+    height: 70vh;
+    overflow-y: scroll;
 }
 
 .chat li {

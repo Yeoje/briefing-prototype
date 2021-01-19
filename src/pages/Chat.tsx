@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonItem, IonLabel, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonItem, IonList, IonMenuButton, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import './Chat.css';
 
 interface Bericht {
@@ -28,13 +28,13 @@ const Chat: React.FC = () => {
           <IonButtons slot="end">
             <IonBackButton defaultHref="home" />
           </IonButtons>
-          <IonTitle>Chat</IonTitle>
+          <IonTitle><IonText color="primary">Chat</IonText></IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Chat</IonTitle>
+            <IonTitle size="large"><IonText color="primary">Chat</IonText></IonTitle>
           </IonToolbar>
         </IonHeader>
         <div className="chat">
@@ -54,10 +54,14 @@ const Chat: React.FC = () => {
             setBerichten([...berichten, bericht])
             setText("");
           }}>
+            <IonList>
+            <IonItem>
             <input type="text" required value={text} onChange={e => {
               setText(e.target.value);
             }} />
-            <IonButton type="submit">Verzenden</IonButton>
+            <IonButton type="submit" item-right>Verzenden</IonButton>
+            </IonItem>
+            </IonList>
           </form>
         </div>
       </IonContent>

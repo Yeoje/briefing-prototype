@@ -12,7 +12,7 @@ import {
   
   import React from 'react';
   import { useLocation } from 'react-router-dom';
-  import { chatbubblesOutline, chatbubblesSharp, homeOutline, homeSharp, medicalOutline, medicalSharp, medkitOutline, medkitSharp, peopleOutline, peopleSharp, settingsOutline, settingsSharp, waterOutline, waterSharp} from 'ionicons/icons';
+  import { chatbubblesOutline, chatbubblesSharp, helpCircleOutline, helpSharp, homeOutline, homeSharp, medicalOutline, medicalSharp, medkitOutline, medkitSharp, peopleOutline, peopleSharp, personOutline, personSharp, waterOutline, waterSharp} from 'ionicons/icons';
   import './Menu.css';
 
 
@@ -30,6 +30,12 @@ import {
       url: '/home',
       iosIcon: homeOutline,
       mdIcon: homeSharp
+    },
+    {
+      title: 'Profiel',
+      url: '/profiel',
+      iosIcon: personOutline,
+      mdIcon: personSharp
     },
     {
       title: 'Chat',
@@ -62,10 +68,10 @@ import {
         mdIcon: medkitSharp
     },
     {
-        title: 'Instellingen',
-        url: '/instellingen',
-        iosIcon: settingsOutline,
-        mdIcon: settingsSharp
+        title: 'Help',
+        url: '/help',
+        iosIcon: helpCircleOutline,
+        mdIcon: helpSharp
     }
   ];
   

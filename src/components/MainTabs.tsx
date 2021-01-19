@@ -8,10 +8,9 @@ import {
   IonTabButton,
   IonTabs
 } from '@ionic/react';
-import { call, home, logOutOutline, settings } from 'ionicons/icons';
+import { call, helpCircleOutline, home, logOutOutline, personOutline } from 'ionicons/icons';
 import Home from '../pages/Home';
 import Spoed from '../pages/Spoed';
-import Instellingen from '../pages/Instellingen';
 import { Redirect, Route, useHistory } from 'react-router';
 import Chat from '../pages/Chat';
 import Consult from '../pages/Consult';
@@ -19,6 +18,8 @@ import Doorverwijzing from '../pages/Doorverwijzing';
 import Bloedonderzoek from '../pages/Bloedonderzoek';
 import MijnMedicijnen from '../pages/MijnMedicijnen';
 import { AuthContext } from '../pages/auth/authContext'
+import Help from '../pages/Help';
+import Profiel from '../pages/Profiel';
 
 const MainTabs: React.FC = () => {
   const { logout } = React.useContext(AuthContext);
@@ -29,9 +30,10 @@ const MainTabs: React.FC = () => {
 
     <IonTabs>
       <IonRouterOutlet>
-        <Route path="/home" component={Home} exact={true} />
-        <Route path="/spoed" component={Spoed} exact={true} />
-        <Route path="/instellingen" component={Instellingen} />
+        <Route path="/home" component={Home} />
+        <Route path="/profiel" component={Profiel} />
+        <Route path="/spoed" component={Spoed} />
+        <Route path="/help" component={Help} />
         <Route path="/chat" component={Chat} />
         <Route path="/consult" component={Consult} />
         <Route path="/doorverwijzing" component={Doorverwijzing} />
@@ -43,6 +45,10 @@ const MainTabs: React.FC = () => {
         <IonTabButton tab="home" href="/home">
           <IonIcon icon={home} />
           <IonLabel>Home</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="profiel" href="/profiel">
+          <IonIcon icon={personOutline} />
+          <IonLabel>Profiel</IonLabel>
         </IonTabButton>
         <IonTabButton tab="spoed" href="/home">
           <IonIcon icon={call} color="danger" onClick={() => setShowAlertSpoed(true)} />
@@ -88,9 +94,9 @@ const MainTabs: React.FC = () => {
             buttons={['Ophangen']}
           />
         </IonTabButton>
-        <IonTabButton tab="instellingen" href="/instellingen">
-          <IonIcon icon={settings} />
-          <IonLabel>Instelligen</IonLabel>
+        <IonTabButton tab="help" href="/help">
+          <IonIcon icon={helpCircleOutline} />
+          <IonLabel>Help</IonLabel>
         </IonTabButton>
         <IonTabButton tab="login" href="/login">
           <IonIcon onClick={logout} icon={logOutOutline} />
