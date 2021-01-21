@@ -22,7 +22,7 @@ const Profiel: React.FC = () => {
             <IonTitle size="large">Profiel</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <p>Profiel</p>
+        <p>Later in the vullen</p>
       </IonContent>
     </IonPage>
   );

@@ -7,7 +7,7 @@ import { AuthContext } from "./auth/authContext";
 
 const Spoed: React.FC = () => {
   const {authValues} = useContext(AuthContext);
-  const [letsel, setLetsel] = useState<string>();
+  const [letsel, setLetsel] = useState<boolean>(false);
   const [drugs, setDrugs] = useState<string>('ja');
   const [slachtofferOk, setSlachtofferOk] = useState<boolean>(false);
   const [slachtofferNietOk, setSlachtofferNietOk] = useState<boolean>(false);
@@ -33,7 +33,7 @@ const Spoed: React.FC = () => {
           <IonButtons slot="end">
             <IonBackButton defaultHref={authValues.authenticated ? "home" : "login"} />
           </IonButtons>
-          <IonTitle>Spoed</IonTitle>
+          <IonTitle><IonText color="danger">Spoed</IonText></IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -46,7 +46,7 @@ const Spoed: React.FC = () => {
           <div className="main">
             <div className="sub-content" style={{ padding: '20px' }}>
               <IonLabel><IonText color="tertiary" style={{ fontWeight: 700, fontSize: 22 }}>Vermoedelijk letsel:</IonText></IonLabel>
-              <IonSelect value={letsel} placeholder="Maak een keuze..." onIonChange={e => setLetsel(e.detail.value)}>
+              <IonSelect value={letsel} placeholder="Maak een keuze..." onIonChange={() => setLetsel(true)}>
                 <IonSelectOption >Botbreuk of ernstige verstuiking/kneuzing</IonSelectOption>
                 <IonSelectOption >Bloeding</IonSelectOption>
                 <IonSelectOption >Ernstige val</IonSelectOption>
@@ -58,6 +58,8 @@ const Spoed: React.FC = () => {
                 <IonSelectOption >Onbekend of niet te achterhalen</IonSelectOption>
               </IonSelect>
             </div>
+            {letsel && (
+          <span>
             <IonList>
               <IonRadioGroup value={drugs} onIonChange={e => setDrugs(e.detail.value)}>
                 <IonListHeader>
@@ -127,8 +129,8 @@ const Spoed: React.FC = () => {
                 </div>
               )}
             </div>
-          </div>
-        )}
+            </span>)}
+          </div>)}
         {kaart && (
           <div style={{ padding: '20px' }}>
             <IonText color="danger" style={{ fontWeight: 700, fontSize: 22 }}>Hulp is onderweg, blijf op uw locatie!</IonText>

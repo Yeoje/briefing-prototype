@@ -22,7 +22,7 @@ const Help: React.FC = () => {
             <IonTitle size="large">Help</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <p>Help</p>
+        <p>Later in te vullen</p>
       </IonContent>
     </IonPage>
   );
