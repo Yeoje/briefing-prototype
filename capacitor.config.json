@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "briefing-prototype",
+  "appId": "com.joeybuhrs.briefingprototype",
+  "appName": "BriefingPrototype",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
