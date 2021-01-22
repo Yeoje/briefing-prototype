@@ -15,7 +15,6 @@ const Spoed: React.FC = () => {
   const [adres, setAdres] = useState<Partial<Adres>>();
   const [klaar, setKlaar] = useState<boolean>(false);
 
-
   interface Adres {
     postcode: string,
     woonplaats: string,

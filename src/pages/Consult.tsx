@@ -34,7 +34,7 @@ const Consult: React.FC = () => {
           <IonButtons slot="end">
             <IonBackButton defaultHref="home" />
           </IonButtons>
-          <IonTitle>Vraag consult aan</IonTitle>
+          <IonTitle><IonText color="primary">Vraag consult aan</IonText></IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

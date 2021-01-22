@@ -14,7 +14,7 @@ const MijnMedicijnen: React.FC = () => {
           <IonButtons slot="end">
             <IonBackButton defaultHref="home" />
           </IonButtons>
-          <IonTitle>Mijn Medicijnen</IonTitle>
+          <IonTitle><IonText color="primary">Mijn Medicijnen</IonText></IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

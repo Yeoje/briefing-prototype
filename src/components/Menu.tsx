@@ -10,10 +10,11 @@ import {
     IonNote,
   } from '@ionic/react';
   
-  import React from 'react';
+  import React, { useContext } from 'react';
   import { useLocation } from 'react-router-dom';
   import { chatbubblesOutline, chatbubblesSharp, helpCircleOutline, helpSharp, homeOutline, homeSharp, medicalOutline, medicalSharp, medkitOutline, medkitSharp, peopleOutline, peopleSharp, personOutline, personSharp, waterOutline, waterSharp} from 'ionicons/icons';
   import './Menu.css';
+  import { AuthContext } from "../pages/auth/authContext";
 
 
   
@@ -76,6 +77,7 @@ import {
   ];
   
   const Menu: React.FC = () => {
+    const {authValues} = useContext(AuthContext);
     const location = useLocation();
   
     return (
@@ -83,7 +85,7 @@ import {
         <IonContent>
           <IonList id="inbox-list">
             <IonListHeader>Briefing Prototype</IonListHeader>
-            <IonNote>TODO:Voeg naam value toe</IonNote>
+            <IonNote>Ingelogd als {authValues.user?.username}</IonNote>
             {appPages.map((appPage, index) => {
               return (
                 <IonMenuToggle key={index} autoHide={false}>

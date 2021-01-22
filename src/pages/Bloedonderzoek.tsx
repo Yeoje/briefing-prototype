@@ -23,7 +23,7 @@ const history = useHistory();
           <IonButtons slot="end">
             <IonBackButton defaultHref="home" />
           </IonButtons>
-          <IonTitle>Vraag bloedonderzoek aan</IonTitle>
+          <IonTitle><IonText color="primary">Vraag bloedonderzoek aan</IonText></IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

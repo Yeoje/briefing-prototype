@@ -10,7 +10,7 @@ const Home: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>Home</IonTitle>
+          <IonTitle><IonText color="primary">Home</IonText></IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
