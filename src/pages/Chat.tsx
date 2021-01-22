@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonItem, IonList, IonMenuButton, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import { IonAvatar, IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonItem, IonList, IonMenuButton, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import './Chat.css';
 
 interface Bericht {
@@ -41,6 +41,9 @@ const Chat: React.FC = () => {
         <ul>
           {berichten?.map(bericht => (
             <li className={bericht.mine ? "patient" : "dokter"}>
+                <IonAvatar slot="start" className="dokter">
+                  <img src="https://www.flaticon.com/svg/vstatic/svg/3011/3011270.svg?token=exp=1611334590~hmac=cc1e8edbad5578dedb44fcb6d4e58392" alt="" />
+                </IonAvatar>
               <p>{bericht.text}</p>
             </li>
           ))}
