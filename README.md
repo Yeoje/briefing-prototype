@@ -1,2 +1,2 @@
 # Briefing-Prototype
-Briefing Prototype for an assignment for the LOI
+Briefing Prototype for an assignment for my Front-end Developer course.
