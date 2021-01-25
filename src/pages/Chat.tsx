@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { IonAvatar, IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonList, IonMenuButton, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import { IonAvatar, IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonList, IonMenuButton, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import './Chat.css';
-import { snowOutline } from 'ionicons/icons';
+import boy from '../assets/boy.png';
+import doctor from '../assets/doctor.png';
 
 interface Bericht {
   mine: boolean,
@@ -46,7 +47,7 @@ const Chat: React.FC = () => {
             {berichten?.map(bericht => (
               <li className={bericht.mine ? "patient" : "dokter"}>
                 {bericht.mine ? undefined : <IonAvatar>
-                <img src="https://www.flaticon.com/svg/vstatic/svg/3011/3011270.svg?token=exp=1611334590~hmac=cc1e8edbad5578dedb44fcb6d4e58392" />
+                <img src={doctor} alt="" />
               </IonAvatar>}
                 <p>{bericht.text}</p>
               </li>
@@ -64,7 +65,7 @@ const Chat: React.FC = () => {
             <IonList>
               <div className="patient">
                 <IonAvatar style={{ paddingRight: 3 }}>
-                  <img src="https://www.flaticon.com/svg/vstatic/svg/3003/3003035.svg?token=exp=1611585292~hmac=1dfd9be9acb7bad1cce7829bac915eff" />
+                  <img src={boy} alt="" />
                 </IonAvatar>
                 <input type="text" required value={text} onChange={e => {
                   setText(e.target.value);

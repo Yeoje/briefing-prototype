@@ -6,7 +6,7 @@
     justify-content: flex-end;
     flex-direction: column;
     padding: 4px;
-    background: #eee;
+    background: rgb(250, 249, 249);
     list-style-type: none;
     height: calc(100vh - 225px);
     overflow: auto;
