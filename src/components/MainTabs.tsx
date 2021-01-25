@@ -8,7 +8,7 @@ import {
   IonTabButton,
   IonTabs
 } from '@ionic/react';
-import { call, helpCircleOutline, home, logOutOutline, personOutline } from 'ionicons/icons';
+import { call, helpCircleOutline, homeOutline, logOutOutline, personOutline } from 'ionicons/icons';
 import Home from '../pages/Home';
 import Spoed from '../pages/Spoed';
 import { Redirect, Route, useHistory } from 'react-router';
@@ -43,7 +43,7 @@ const MainTabs: React.FC = () => {
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
         <IonTabButton tab="home" href="/home">
-          <IonIcon icon={home} />
+          <IonIcon icon={homeOutline} />
           <IonLabel>Home</IonLabel>
         </IonTabButton>
         <IonTabButton tab="profiel" href="/profiel">

@@ -1,15 +1,16 @@
 .chat {
-    height: 80vh;
+    position: absolute;
+    width: 100%;
 }
 .chat ul {
-    display: flex;
     justify-content: flex-end;
     flex-direction: column;
     padding: 4px;
     background: #eee;
     list-style-type: none;
-    height: 70vh;
-    overflow-y: scroll;
+    height: calc(100vh - 225px);
+    overflow: auto;
+    margin: 0px 0px 15px 0px;
 }
 
 .chat li {
@@ -27,14 +28,18 @@
 }
 
 .dokter {
-    text-align: left;
+    display: flex;
+    justify-content: space-evenly;
 }
 .patient {
-    text-align:right;
+    display: flex;
+    justify-content: space-evenly;
 }
 .dokter > p {
+    float: left;
     background-color: white;
 }
 .patient > p {
-    background-color: green;
+    float: right;
+    background-color: rgb(4, 182, 4);
 }
