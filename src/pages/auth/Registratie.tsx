@@ -46,7 +46,7 @@ return (
                 </IonItem>
                 <IonItem>
                     <IonLabel position="floating">Email</IonLabel>
-                    <IonInput required min="4" value={user?.email} onIonChange={(e) => setUser({ ...user, email: e.detail.value! })} />
+                    <IonInput required min="4" type="email" value={user?.email} onIonChange={(e) => setUser({ ...user, email: e.detail.value! })} />
                 </IonItem>
                 <IonItem>
                     <IonLabel position="floating">Username</IonLabel>

@@ -14,11 +14,12 @@ export const Alert: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
+                <form className="ion-padding" onSubmit={() => setShowAlert(true)}>
                 <IonItem>
                     <IonLabel position="floating">Email</IonLabel>
-                    <IonInput required min="4" />
+                    <IonInput required min="4" type="email" />
                 </IonItem>
-                <IonButton onClick={() => setShowAlert(true)} expand="block" style={{ padding: '5px' }}>Verstuur wachtwoord</IonButton>
+                <IonButton expand="block" type="submit" style={{ padding: '5px' }}>Verstuur wachtwoord</IonButton>
                 <IonAlert
                     isOpen={showAlert}
                     onDidDismiss={() => setShowAlert(false)}
@@ -28,6 +29,7 @@ export const Alert: React.FC = () => {
                     message={'Een e-mail met uw wachtwoord is verstuurd naar uw e-mail.'}
                     buttons={['OK']}
                 />
+                </form>
             </IonContent>
         </IonPage>
     );
