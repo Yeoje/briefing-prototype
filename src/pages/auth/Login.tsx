@@ -18,6 +18,8 @@ import { RouteComponentProps, useHistory } from "react-router";
 import { AuthContext, User } from "./authContext";
 import './Login.css';
 import logo from "../../assets/logo.png"
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
 
 const Login: React.FC<RouteComponentProps> = () => {
     const { login } = React.useContext(AuthContext);
@@ -25,6 +27,14 @@ const Login: React.FC<RouteComponentProps> = () => {
     const [user, setUser] = React.useState<Partial<User>>();
     const [showAlertSpoed, setShowAlertSpoed] = useState(false);
     const [alert112, setAlert112] = useState(false);
+
+    const responseFacebook = (response: any) => {
+        console.log(response);
+    }
+
+    const responseGoogle = (response: any) => {
+        console.log(response);
+    }
 
     const doLogin = async () => {
         if (user?.username && user.password) {
@@ -72,6 +82,24 @@ const Login: React.FC<RouteComponentProps> = () => {
                         Login
                     </IonButton>
                     <IonButton className="ion-margin-top" color="secondary" expand="block" href="/registratie">Registreer</IonButton>
+                    <div className="social-login-block">
+                        <FacebookLogin
+                            appId="719243318731542"
+                            autoLoad={false}
+                            fields="name,email,picture"
+                            callback={responseFacebook}
+                            textButton="Login"
+                            icon="fa-facebook"
+                        />
+                        <GoogleLogin
+                            clientId="247518484544-lnhtn8ao3a9jj5l6bmtfv83rsmmv05qd.apps.googleusercontent.com"
+                            buttonText="Login"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                            className="google-button"
+                        />
+                    </div>
                 </form>
             </IonContent>
             <IonFooter>

@@ -8,3 +8,17 @@
 .login-title {
     transform: translate(22px, 26px);
 }
+
+.kep-login-facebook {
+    border-radius: 25px !important;
+}
+
+.google-button {
+border-radius: 25px !important;
+}
+
+.social-login-block {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 25px;
+}
