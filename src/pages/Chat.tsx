@@ -1,8 +1,25 @@
 import React, { useState } from 'react';
-import { IonAvatar, IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonList, IonMenuButton, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import {
+  IonAvatar,
+  IonBackButton,
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonList,
+  IonMenuButton,
+  IonPage,
+  IonText,
+  IonTitle,
+  IonToolbar
+} from '@ionic/react';
 import './Chat.css';
 import boy from '../assets/boy.png';
 import doctor from '../assets/doctor.png';
+import { cameraOutline } from 'ionicons/icons';
+import { Plugins, CameraResultType } from '@capacitor/core';
+const { Camera } = Plugins;
 
 interface Bericht {
   mine: boolean,
@@ -15,6 +32,20 @@ const initialMessage: Bericht[] = [
     text: "Goedemorgen, waarmee kan ik u helpen?"
   }
 ];
+
+async function takePicture(this: any) {
+  const image = await Camera.getPhoto({
+  quality: 90,
+  allowEditing: false,
+  resultType: CameraResultType.Uri
+});
+var imageUrl = image.webPath;
+// Can be set to the src of an image now
+this.setState({
+  photo: imageUrl
+  })
+}
+
 
 const Chat: React.FC = () => {
   const [berichten, setBerichten] = useState<Bericht[]>(initialMessage)
@@ -67,6 +98,9 @@ const Chat: React.FC = () => {
                 <IonAvatar style={{ paddingRight: 3 }}>
                   <img src={boy} alt="" />
                 </IonAvatar>
+                <IonButton onClick={takePicture}>
+                <IonIcon icon={cameraOutline}></IonIcon>
+                </IonButton>
                 <input type="text" required value={text} onChange={e => {
                   setText(e.target.value);
                 }} />
