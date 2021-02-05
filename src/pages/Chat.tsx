@@ -7,6 +7,7 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
+  IonInput,
   IonList,
   IonMenuButton,
   IonPage,
@@ -98,12 +99,10 @@ const Chat: React.FC = () => {
                 <IonAvatar style={{ paddingRight: 3 }}>
                   <img src={boy} alt="" />
                 </IonAvatar>
-                <IonButton onClick={takePicture}>
-                <IonIcon icon={cameraOutline}></IonIcon>
-                </IonButton>
                 <input type="text" required value={text} onChange={e => {
                   setText(e.target.value);
                 }} />
+                <IonIcon icon={cameraOutline} onClick={takePicture} item-left style={{transform: "scale(1.5) translate(0px, 12px)"}}></IonIcon>
                 <IonButton type="submit" item-right>Verzend</IonButton>
               </div>
             </IonList>
