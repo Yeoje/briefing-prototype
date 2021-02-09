@@ -63,8 +63,8 @@ import {
         mdIcon: waterSharp
     },
     {
-        title: 'Mijn Medicijnen',
-        url: '/mijnmedicijnen',
+        title: 'EPD',
+        url: '/epd',
         iosIcon: medkitOutline,
         mdIcon: medkitSharp
     },

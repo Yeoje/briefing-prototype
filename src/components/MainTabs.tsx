@@ -16,10 +16,10 @@ import Chat from '../pages/Chat';
 import Consult from '../pages/Consult';
 import Doorverwijzing from '../pages/Doorverwijzing';
 import Bloedonderzoek from '../pages/Bloedonderzoek';
-import MijnMedicijnen from '../pages/MijnMedicijnen';
 import { AuthContext } from '../pages/auth/authContext'
 import Help from '../pages/Help';
 import Profiel from '../pages/Profiel';
+import EPD from '../pages/EPD';
 
 const MainTabs: React.FC = () => {
   const { logout } = React.useContext(AuthContext);
@@ -38,7 +38,7 @@ const MainTabs: React.FC = () => {
         <Route path="/consult" component={Consult} />
         <Route path="/doorverwijzing" component={Doorverwijzing} />
         <Route path="/bloedonderzoek" component={Bloedonderzoek} />
-        <Route path="/mijnmedicijnen" component={MijnMedicijnen} />
+        <Route path="/epd" component={EPD} />
         <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
