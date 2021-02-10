@@ -49,8 +49,53 @@ const EPD: React.FC = () => {
         {!notLoggedIn
           ? (
             <div>
+              <IonLabel color="primary">Gegevens</IonLabel>
+              <IonItem>
+                <IonText color="tertiary">Huisarts:</IonText>
+                <p>Dr. A. Wimmel</p>
+              </IonItem>
+              <IonItem>
+                <IonText color="tertiary">Naam:</IonText>
+                <p>Rientje Stokkers</p>
+              </IonItem>
+              <IonItem>
+                <IonText color="tertiary">Geboortedatum:</IonText>
+                <p>24 December 1984</p>
+              </IonItem>
+              <IonItem>
+                <IonText color="tertiary">Woonplaats:</IonText>
+                <p>Bekerstraat 24 1932RE Dronten</p>
+              </IonItem>
+              <IonItem>
+                <IonText color="tertiary">Email:</IonText>
+                <p>superrientje@gmail.com</p>
+              </IonItem>
+              <IonItem>
+                <IonText color="tertiary">Telefoon:</IonText>
+                <p>06-12341238</p>
+              </IonItem>
+
+              <IonLabel color="primary">Bekende aandoeningen</IonLabel>
+              <IonItem>
+                <IonText color="tertiary">Diabetes:</IonText>
+                <p>Type 2</p>
+              </IonItem>
+
+              <IonLabel color="primary">Medicijnenlijst</IonLabel>
               <Medicijn naam="Diazepam - 5mg" />
               <Medicijn naam="Omeprazol - 10mg" />
+
+              <IonLabel color="primary">Aanvragen</IonLabel>
+              <IonItem>
+                <IonText color="tertiary">Doorverwijzingen:</IonText>
+                <p>Geen</p>
+              </IonItem>
+
+              <IonLabel color="primary">Lab uitslagen</IonLabel>
+              <IonItem>
+                <IonText color="tertiary">Bloedafname:</IonText>
+                <p>Geen</p>
+              </IonItem>
             </div>)
           :
           ( <form className="ion-padding">
